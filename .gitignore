@@ -1,2 +1,28 @@
-media/products/videos/RA6-50L_MoLHPxE.mp4
+# Environment
+.env
+
+# Python cache and bytecode files
+__pycache__/
+*.pyc
+
+# Database files
+db.sqlite3
+
+# Media and static files
+media/
+staticfiles/
+
+# Log files
+*.log
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Large media/video files
 *.mp4
+
+# OS files
+.DS_Store
+Thumbs.db
+# Python virtual environment
