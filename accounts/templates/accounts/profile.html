@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block title %}Мій профіль{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h2>Вітаємо, {{ user.username }}!</h2>
+  <p>Email: {{ user.email }}</p>
+  <p>Дата реєстрації: {{ user.date_joined|date:"d.m.Y" }}</p>
+  <p>Останній вхід: {{ user.last_login|date:"d.m.Y H:i" }}</p>
+  <div class="text-center mt-4">
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">На головну</a>
+  </div>
+
+</div>
+{% endblock %}

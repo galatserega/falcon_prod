@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <style>
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+
+            body {
+                font-family: "DejaVuSans", sans-serif;
+                font-size: 14px;
+            }
+            h2,
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            th,
+            td {
+                border: 1px solid #000;
+                padding: 6px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Замовлення №{{ order.id }}</h2>
+        <p><strong>Ім’я:</strong> {{ order.name }}</p>
+        <p><strong>Телефон:</strong> {{ order.phone }}</p>
+                <p><strong>Email:</strong> {{ order.email }}</p>
+
+        <h3>Товари:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Кількість</th>
+                    <th>Ціна</th>
+                    <th>Сума</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }} грн</td>
+                    <td>{{ item.total_price }} грн</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="3" align="right">
+                        <strong>Загальна сума:</strong>
+                    </td>
+                    <td><strong>{{ cart.get_total_price }} грн</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

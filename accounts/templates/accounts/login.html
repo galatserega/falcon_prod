@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Вхід{% endblock %}
+
+{% block content %}
+  <div class="container py-5" style="max-width: 500px;">
+    <h2 class="mb-4 text-center">Вхід до акаунту</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_username" class="form-label">Ім’я користувача</label>
+        <input type="text" name="username" class="form-control" id="id_username" required>
+      </div>
+      <div class="mb-3">
+        <label for="id_password" class="form-label">Пароль</label>
+        <input type="password" name="password" class="form-control" id="id_password" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Увійти</button>
+    </form>
+    <p class="mt-4 text-center">
+      Ще не маєте акаунту?
+      <a href="{% url 'accounts:register' %}">Зареєструватися</a>
+    </p>
+  </div>
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Головна — Falcon Optic{% endblock %}
+{% block meta_description %}Falcon Optic — точність, якість, підтримка.{% endblock %}
+{% block og_title %}Falcon Optic — Головна{% endblock %}
+{% block content %}
+
+<!-- Головний слайдер -->
+<div id="mainSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+  <div class="carousel-inner">
+    {% for slider in sliders %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        {% if slider.product %}
+          <a href="{% url 'product_detail' slider.product.slug %}">
+            <img src="{{ slider.image.url }}" class="d-block w-100" style="max-height: 90vh; object-fit: cover;" alt="{{ slider.title }}">
+          </a>
+        {% else %}
+          <img src="{{ slider.image.url }}" class="d-block w-100" style="max-height: 90vh; object-fit: cover;" alt="{{ slider.title }}">
+        {% endif %}
+        <div class="carousel-caption d-none d-md-block">
+                  </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Кнопки навігації -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Попередній</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Наступний</span>
+  </button>
+</div>
+
+<!-- Герой-блок -->
+<section class="py-5 text-center text-white" style="background: url('{% static "img/hero.jpg" %}') center/cover no-repeat;">
+  <div class="container py-5">
+    <h1 class="display-4 fw-bold">Сучасна оптика для полювання та спостереження</h1>
+    <p class="lead mt-3">Falcon Optic — передові технології та максимальна точність</p>
+    <a href="{% url 'product_list' %}" class="btn btn-warning btn-lg mt-4">Переглянути продукцію</a>
+  </div>
+</section>
+
+<!-- Особливості -->
+<section class="py-5 bg-dark text-center">
+  <div class="container">
+    <h2 class="mb-4">Наші переваги</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <img src="{% static 'img/accuracy.jpg' %}" alt="Точність" width="160">
+        <h5 class="mt-3">Висока точність</h5>
+        <p>Інноваційні технології для точного влучання навіть у складних умовах.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="{% static 'img/night.jpg' %}" alt="Нічне бачення" width="160">
+        <h5 class="mt-3">Нічне бачення</h5>
+        <p>Повна видимість у темряві — тепловізійні та нічні приціли.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="{% static 'img/support.jpg' %}" alt="Сервіс" width="160">
+        <h5 class="mt-3">Професійна підтримка</h5>
+        <p>Консультації, гарантія та обслуговування для кожного клієнта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Слайдер продуктів -->
+<section class="py-5 text-center">
+  <div class="container">
+    <h2 class="mb-4">Популярні продукти</h2>
+
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        {% for product in popular_products %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+
+                <!-- Картинка як посилання -->
+                <a href="{% url 'product_detail' product.slug %}">
+                  <img src="{{ product.image.url }}"
+                       class="d-block w-100 rounded shadow-sm"
+                       style="max-height: 350px; object-fit: cover;"
+                       alt="{{ product.name }}">
+                </a>
+
+                <div class="mt-3">
+                  <!-- Назва як посилання -->
+                  <h5>
+                    <a href="{% url 'product_detail' product.slug %}" class="text-decoration-none text-dark">
+                      {{ product.name }}
+                    </a>
+                  </h5>
+
+                  <!-- Кнопка -->
+                  <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline-primary mt-2">Детальніше</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+
+      <!-- Кнопки навігації -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Попередній</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Наступний</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Новини -->
+<section class="py-5 bg-dark">
+  <div class="container">
+    <h2 class="mb-4 text-center">Останні новини</h2>
+    <div class="row">
+      {% for news in recent_news %}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            {% if news.image %}
+              <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}">
+            {% endif %}
+            <div class="card-body bg-dark text-white">
+              <h5 class="card-title">{{ news.title }}</h5>
+              <p class="card-text">{{ news.content|truncatechars:100 }}</p>
+              <a href="{% url 'news_detail' news.slug %}" class="btn btn-outline-secondary">Читати</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-3">
+      <a href="{% url 'news_list' %}" class="btn btn-primary">Всі новини</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 text-white" style="background-color: #212529;">
+  <div class="container text-center">
+    <h3 class="mb-3">Зв’яжіться з нами</h3>
+    <p class="mb-4">Маєте питання щодо продукції? Ми радо допоможемо!</p>
+    <a href="{% url 'contact' %}" class="btn btn-warning btn-lg">Написати нам</a>
+  </div>
+</section>
+
+{% endblock %}

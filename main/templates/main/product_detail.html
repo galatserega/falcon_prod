@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} — Falcon Optic{% endblock %}
+
+{% block meta_description %}{{ product.short_description|truncatechars:160 }}{% endblock %}
+{% block og_title %}{{ product.name }} — Falcon Optic{% endblock %}
+{% block og_description %}{{ product.short_description|truncatechars:160 }}{% endblock %}
+{% block og_image %}{{ og_image_url }}{% endblock %}
+
+{% block extra_head %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  <style>
+    .full-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .buy-block {
+      background: #f9f9f9;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 40px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+
+  <!-- Головне фото -->
+  {% if product.image %}
+    <a href="{{ product.image.url }}" data-lightbox="product-gallery">
+      <img src="{{ product.image.url }}" class="full-image" alt="{{ product.name }}">
+    </a>
+  {% endif %}
+
+  <!-- Блок "ціна + кнопка" -->
+<div class="container-fluid bg-dark text-white py-5">
+  <div class="container">
+    <h1 class="mb-3">{{ product.name }}</h1>
+    <h4 class="text-warning mb-2">{{ product.price }} грн</h4>
+    <p class="text-muted">{{ product.category.name }}</p>
+    <a href="{% url 'cart:cart_add' product.id %}?next={{ request.path }}" class="btn btn-warning btn-lg">В кошик</a>
+  </div>
+</div>
+{% if product.video %}
+  <div class="ratio ratio-16x9 mb-3">
+    <video controls preload="metadata">
+      <source src="{{ product.video.url }}" type="video/mp4">
+      Ваш браузер не підтримує відео.
+    </video>
+  </div>
+{% endif %}
+
+  <!-- Додаткові фото -->
+  {% if product.gallery.all %}
+    {% for img in product.gallery.all %}
+      <a href="{{ img.image.url }}" data-lightbox="product-gallery">
+        <img src="{{ img.image.url }}" class="full-image" alt="Фото {{ forloop.counter }}">
+      </a>
+    {% endfor %}
+  {% endif %}
+
+  <!-- Опис -->
+  <div class="container py-5">
+    <div class="mb-5">
+      {{ product.full_description|linebreaks }}
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+{% endblock %}

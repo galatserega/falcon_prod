@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+{% block title %}Дякуємо за замовлення — Falcon Optic{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+  <h2>Дякуємо за замовлення!</h2>
+  <p>Наш менеджер зв'яжеться з вами найближчим часом.</p>
+  <a href="{% url 'product_list' %}" class="btn btn-primary mt-3">Повернутися до каталогу</a>
+</div>
+{% endblock %}
