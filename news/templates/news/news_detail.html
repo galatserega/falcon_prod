@@ -15,7 +15,7 @@
   {% if news.image %}
   <img src="{{ news.image.url }}" class="img-fluid mb-4">
   {% endif %}
-  <p>{{ news.content|linebreaks }}</p>
+  <p>{{ news.content|safe }}</p>
   <p class="text-muted">Опубліковано: {{ news.created_at|date:"d.m.Y H:i" }}</p>
 
   <hr>

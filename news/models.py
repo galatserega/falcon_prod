@@ -1,13 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from django_ckeditor_5.fields import CKEditor5Field
+
+
 # Create your models here.
 
 
 class News(models.Model):
     title = models.CharField("Заголовок", max_length=200)
     slug = models.SlugField("Слаг", unique=True, blank=True)
-    content = models.TextField('Контент')
+    content = CKEditor5Field('Content', config_name='default')
     image = models.ImageField("Зображення", upload_to='news/', blank=True, null=True)
     created_at = models.DateTimeField("Дата створення", auto_now_add=True)
 

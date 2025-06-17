@@ -15,6 +15,8 @@ INSTALLED_APPS = [
     "news",
     "cart",
     "orders",
+    'captcha',
+    'django_ckeditor_5',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -103,3 +105,15 @@ LOGIN_REDIRECT_URL = '/profile/'
 LOGOUT_REDIRECT_URL = '/'
 
 DEJAVU_FONT_PATH = BASE_DIR / 'orders' / 'fonts' / 'DejaVuSans.ttf'
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['bold', 'italic', 'link'],
+    },
+    'custom': {
+        'extends': 'default',  # Це вказує, що 'custom' наслідує 'default'
+        'toolbar': ['bold', 'italic', 'link', 'undo', 'redo'],
+    },
+}
+
+CKEDITOR5_UPLOAD_PATH = "uploads/"
