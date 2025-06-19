@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django_ckeditor_5.fields import CKEditor5Field
-
+from django.utils.html import strip_tags
 
 # Create your models here.
 
@@ -26,6 +26,10 @@ class News(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+    @property
+    def preview(self):
+        """Повертає перші 100 символів контенту без HTML-тегів."""
+        return strip_tags(self.content)[:150] + '...'
 
 
 class Comment(models.Model):

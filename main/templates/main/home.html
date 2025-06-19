@@ -133,7 +133,7 @@
             {% endif %}
             <div class="card-body bg-dark text-white">
               <h5 class="card-title">{{ news.title }}</h5>
-              <p class="card-text">{{ news.content|truncatechars:100 }}</p>
+              <p class="card-text">{{ news.content|striptags|truncatechars:100 }}</p>
               <a href="{% url 'news_detail' news.slug %}" class="btn btn-outline-secondary">Читати</a>
             </div>
           </div>

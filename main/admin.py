@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Review, Slider, Category, ProductImage
+from .models import Product, Review, Slider, Category, ProductImage, FAQ
 from django.utils.html import mark_safe
 
 
@@ -47,3 +47,9 @@ class ReviewAdmin(admin.ModelAdmin):
 class SliderAdmin(admin.ModelAdmin):
     list_display = ('title', 'active', 'order')
     list_editable = ('active', 'order')
+
+@admin.register(FAQ)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('question',)
+    search_fields = ('question', 'answer')
+    

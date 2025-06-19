@@ -79,3 +79,17 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"Фото для {self.product.name}"
+
+
+class FAQ(models.Model):
+    question = models.CharField("Питання", max_length=255)
+    answer = models.TextField("Відповідь")
+
+    class Meta:
+        verbose_name = "FAQ"
+        verbose_name_plural = "FAQ (Часті питання)"
+        ordering = ['id']
+
+    def __str__(self):
+        return self.question
+    

@@ -14,7 +14,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <!-- Використовуємо strip_tags, щоб видалити HTML теги, truncatechars для обрізки -->
-          <p class="card-text">{{ item.content|striptags|truncatechars:150 }}</p>
+          <p class="card-text">{{ item.preview }}</p> 
           <a href="{% url 'news_detail' item.slug %}" class="btn btn-outline-primary">Читати далі</a>
         </div>
         <div class="card-footer text-muted small">

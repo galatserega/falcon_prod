@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block title %}FAQ — Falcon Optic{% endblock %}
+{% block content %}
+<h2 class="mb-4">Поширені запитання</h2>
+
+{% for item in faq_items %}
+  <details class="mb-3 p-3 border rounded">
+    <summary class="fw-bold">{{ item.question }}</summary>
+    <p class="mt-2">{{ item.answer }}</p>
+  </details>
+{% endfor %}
+<p class="mt-4">
+  Якщо ви не знайшли відповіді, зверніться до нас напряму:
+  <a href="{% url 'contact' %}">Контакти</a>
+</p>
+{% endblock %}

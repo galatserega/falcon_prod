@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Category
+from .models import FAQ, Product, Category
 from .forms import ContactForm, OrderForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -91,3 +91,8 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'main/contact.html', {'form': form, 'success': success})
+
+
+def faq_view(request):
+    faq_items = FAQ.objects.all()
+    return render(request, 'main/faq.html', {'faq_items': faq_items})
