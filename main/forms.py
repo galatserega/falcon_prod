@@ -1,7 +1,6 @@
 from django import forms
 from .models import Order
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
 
 
 class ContactForm(forms.Form):
@@ -11,6 +10,14 @@ class ContactForm(forms.Form):
         attrs={'class': 'form-control'}))
     message = forms.CharField(label='Повідомлення', widget=forms.Textarea(
         attrs={'class': 'form-control', 'rows': 5}))
+    captcha = CaptchaField(
+        label='Підтвердіть, що ви не робот',
+        error_messages={
+            'required': 'Будь ласка, заповніть капчу.',
+            'invalid': 'Невірна капча. Спробуйте ще раз.'
+        }
+    )
+
 
 
 class OrderForm(forms.ModelForm):

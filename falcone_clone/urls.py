@@ -49,6 +49,7 @@ urlpatterns = [
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(),
          name='password_reset_complete'),
     path('faq/', views.faq_view, name='faq'),
+    path('delivery_payment/', views.delivery_payment, name='delivery_payment'),
 
 
 

@@ -96,3 +96,7 @@ def contact(request):
 def faq_view(request):
     faq_items = FAQ.objects.all()
     return render(request, 'main/faq.html', {'faq_items': faq_items})
+
+
+def delivery_payment(request):
+    return render(request, 'main/delivery_payment.html')
