@@ -12,8 +12,10 @@ from xhtml2pdf.default import DEFAULT_FONT
 from .forms import OrderForm
 from .models import Order, OrderItem
 from cart.cart import Cart
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def order_create(request):
     cart = Cart(request)
     if len(cart) == 0:
@@ -91,7 +93,7 @@ def order_create(request):
             messages.success(
                 request, f'Замовлення №{order.id} успішно оформлено.'
             )
-            return redirect('orders:order_success', order_id=order.id)  
+            return redirect('orders:order_success', order_id=order.id)
     else:
         form = OrderForm()
 

@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from news.models import News
 from django.templatetags.static import static
-
+from django.http import HttpResponse
 # Create your views here.
 
 
@@ -100,3 +100,14 @@ def faq_view(request):
 
 def delivery_payment(request):
     return render(request, 'main/delivery_payment.html')
+
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Disallow: /admin/",
+        "Disallow: /accounts/login/",
+        "Disallow: /accounts/register/",
+        "Sitemap: https://yourdomain.com/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")

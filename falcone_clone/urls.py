@@ -22,6 +22,14 @@ from django.conf.urls.static import static
 from main import views
 from accounts import views as accounts_views
 from django.contrib.auth import views as auth_views
+from django.contrib.sitemaps.views import sitemap
+from main.sitemap import StaticViewSitemap
+
+
+sitemaps = {
+    'static': StaticViewSitemap,
+
+}
 
 
 urlpatterns = [
@@ -50,7 +58,9 @@ urlpatterns = [
          name='password_reset_complete'),
     path('faq/', views.faq_view, name='faq'),
     path('delivery_payment/', views.delivery_payment, name='delivery_payment'),
-
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', views.robots_txt, name='robots_txt'),
 
 
 ]

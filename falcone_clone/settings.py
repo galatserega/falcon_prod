@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_cleanup",
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -117,3 +118,4 @@ CKEDITOR_5_CONFIGS = {
 }
 
 CKEDITOR5_UPLOAD_PATH = "uploads/"
+LOGIN_URL = '/accounts/login/' 
