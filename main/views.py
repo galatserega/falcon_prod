@@ -108,6 +108,6 @@ def robots_txt(request):
         "Disallow: /admin/",
         "Disallow: /accounts/login/",
         "Disallow: /accounts/register/",
-        "Sitemap: https://yourdomain.com/sitemap.xml",
+        "Sitemap: https://falconoptics.com.ua/sitemap.xml",
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")

@@ -1,5 +1,7 @@
 /* --- Базові стилі --- */
 body {
+    font-size: 14px;
+    line-height: 1.5;
     background-color: #121212;
     color: #f1f1f1;
     font-family: 'Roboto', sans-serif;

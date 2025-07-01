@@ -68,12 +68,15 @@ def order_create(request):
             pdf_file.seek(0)
 
             # 📩 Email адміну
-            send_mass_mail(((
-                f'Нове замовлення №{order.id}',
-                message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],
-            ),))
+            send_mass_mail((
+                (
+                    f'Нове замовлення №{order.id}',
+                    message,
+                    "Falcon Optic <noreply@falconoptics.com.ua>",
+                    settings.EMAIL_ADMIN,
+                ),
+            ))
+
 
             # 📩 Email клієнту з PDF
             email = EmailMessage(
