@@ -23,11 +23,12 @@ from main import views
 from accounts import views as accounts_views
 from django.contrib.auth import views as auth_views
 from django.contrib.sitemaps.views import sitemap
-from main.sitemap import StaticViewSitemap
+from main.sitemap import StaticViewSitemap, ProductSitemap
 
 
 sitemaps = {
     'static': StaticViewSitemap,
+    'products': ProductSitemap,
 
 }
 
