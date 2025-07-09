@@ -1,13 +1,13 @@
+import os
 from pathlib import Path
 from decouple import config
 import logging
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+DEBUG = config('DEBUG', default=True, cast=bool)
 SECRET_KEY = config('SECRET_KEY')
 logging.basicConfig(level=logging.DEBUG)
-DEBUG = True
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
@@ -95,7 +95,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_BACKEND = config(
+    'EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
@@ -104,7 +105,6 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 EMAIL_ADMIN = config('EMAIL_ADMIN')
-
 
 
 LOGIN_REDIRECT_URL = '/profile/'
@@ -123,9 +123,8 @@ CKEDITOR_5_CONFIGS = {
 }
 
 CKEDITOR5_UPLOAD_PATH = "uploads/"
-LOGIN_URL = '/accounts/login/' 
+LOGIN_URL = '/accounts/login/'
 
-import os
 
 LOGGING = {
     'version': 1,
@@ -151,4 +150,3 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-

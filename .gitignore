@@ -26,3 +26,7 @@ staticfiles/
 .DS_Store
 Thumbs.db
 # Python virtual environment
+# .gitignore
+
+falcon_clone/settings/local.py
+.env
