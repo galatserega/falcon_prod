@@ -1,4 +1,4 @@
-# falcon_clone/settings/local.py
+# falcone_clone/settings/local.py
 from .base import *
 
 DEBUG = True
