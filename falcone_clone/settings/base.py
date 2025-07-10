@@ -1,4 +1,4 @@
-# falcon_clone/settings/base.py
+# falcone_clone/settings/base.py
 import os
 from pathlib import Path
 from decouple import config
