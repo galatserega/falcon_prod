@@ -1,3 +1,4 @@
+db.sqlite3
 # Environment
 .env
 
@@ -32,3 +33,4 @@ falcon_clone/settings/local.py
 .env
 update.sh
 webhook.py
+db.sqlite3
