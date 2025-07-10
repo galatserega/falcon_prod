@@ -30,3 +30,5 @@ Thumbs.db
 
 falcon_clone/settings/local.py
 .env
+update.sh
+webhook.py
