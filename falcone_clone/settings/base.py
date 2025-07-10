@@ -39,7 +39,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "falcon_clone.urls"
+ROOT_URLCONF = "falcone_clone.urls"
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "falcon_clone.wsgi.application"
+WSGI_APPLICATION = "falcone_clone.wsgi.application"
 
 DATABASES = {
     "default": {
