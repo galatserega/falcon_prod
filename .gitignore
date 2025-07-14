@@ -34,3 +34,9 @@ falcon_clone/settings/local.py
 update.sh
 webhook.py
 db.sqlite3
+venv/
+media/
+static/
+*.log
+*.sqlite3
+*.jar
