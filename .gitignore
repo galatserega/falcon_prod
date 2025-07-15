@@ -40,3 +40,11 @@ static/
 *.log
 *.sqlite3
 *.jar
+*.pyo
+*.pyd
+.Python
+venv/
+*.env
+staticfiles/
+media/
+db.sqlite3

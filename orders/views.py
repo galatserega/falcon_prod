@@ -72,8 +72,8 @@ def order_create(request):
                 (
                     f'Нове замовлення №{order.id}',
                     message,
-                    "Falcon Optic <noreply@falconoptics.com.ua>",
-                    settings.EMAIL_ADMIN,
+                    settings.DEFAULT_FROM_EMAIL,
+                   [settings.EMAIL_ADMIN],
                 ),
             ))
 
