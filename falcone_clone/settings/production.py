@@ -1,13 +1,15 @@
 from .base import *
+from decouple import config
 
-DEBUG = False
-ALLOWED_HOSTS = ['falconoptics.com.ua',
-                 'www.falconoptics.com.ua', 'vps71960.hyperhost.name']
+# Production-specific settings
+DEBUG = config('DEBUG', default=False, cast=bool)
+ENV = config('ENV', default='PRODUCTION')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='falconoptics.com.ua,www.falconoptics.com.ua,vps71960.hyperhost.name', cast=lambda v: [s.strip() for s in v.split(',')])
 
-# продакшен-орієнтоване сховище медіа
+# Production-oriented media storage
 MEDIA_ROOT = '/var/www/media/'
 
-# безпечні cookie + HTTPS редирект
+# Security settings
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
