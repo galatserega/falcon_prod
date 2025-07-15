@@ -64,7 +64,7 @@ urlpatterns = [
     path('robots.txt', views.robots_txt, name='robots_txt'),
 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 if settings.DEBUG:
