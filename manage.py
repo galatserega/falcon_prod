@@ -6,7 +6,7 @@ from decouple import config
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "falcone_clone.production")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "falcone_clone.settings.local")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
