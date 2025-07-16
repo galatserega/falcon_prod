@@ -57,8 +57,12 @@
 
         <!-- Custom styles -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2" />
-        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+        <link
+            rel="shortcut icon"
+            href="/static/img/favicon.ico"
+            type="image/x-icon"
+        />
     </head>
     <body>
         {% if messages %}
@@ -127,7 +131,9 @@
                             >
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'delivery_payment' %}"
+                            <a
+                                class="nav-link"
+                                href="{% url 'delivery_payment' %}"
                                 >Доставка і оплата</a
                             >
                         </li>
@@ -187,6 +193,14 @@
                             href="{% url 'accounts:register' %}"
                             >Реєстрація</a
                         >
+                        <!-- 🔽 Вхід через Google -->
+                        <a
+                            href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"
+                            class="btn btn-outline-danger"
+                        >
+                            <i class="fa-brands fa-google"></i> Вхід через
+                            Google
+                        </a>
                         {% endif %}
                     </div>
                 </div>
