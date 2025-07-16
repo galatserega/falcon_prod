@@ -5,6 +5,7 @@
 {% block content %}
   <div class="container py-5" style="max-width: 500px;">
     <h2 class="mb-4 text-center">Вхід до акаунту</h2>
+
     <form method="post" novalidate>
       {% csrf_token %}
       <div class="mb-3">
@@ -17,11 +18,18 @@
       </div>
       <button type="submit" class="btn btn-primary w-100">Увійти</button>
     </form>
+
+    <hr class="my-4" />
+
+    <!-- 🔽 Вхід через Google -->
+    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-danger w-100">
+      <i class="fa-brands fa-google"></i> Увійти через Google
+    </a>
+
     <p class="mt-4 text-center">
       Ще не маєте акаунту?
       <a href="{% url 'accounts:register' %}">Зареєструватися</a>
     </p>
     <p><a href="{% url 'accounts:password_reset' %}">Забули пароль?</a></p>
-
   </div>
 {% endblock %}

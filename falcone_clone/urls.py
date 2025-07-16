@@ -59,6 +59,7 @@ urlpatterns = [
          name='password_reset_complete'),
     path('faq/', views.faq_view, name='faq'),
     path('delivery_payment/', views.delivery_payment, name='delivery_payment'),
+    path('oauth/', include('social_django.urls', namespace='social')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', views.robots_txt, name='robots_txt'),
