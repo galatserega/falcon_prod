@@ -1,0 +1,33 @@
+* [33mb5241ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Added media serving for local development
+* [33mcde8dcb[m Updated to modular settings with Google OAuth and Telegram
+* [33m619c720[m Added requirements.txt
+* [33m68dcb7a[m Initial commit
+* [33m5734477[m Add .gitignore and remove big unnecessary files from git
+*   [33mf119c67[m Resolved conflict for db.sqlite3
+[32m|[m[33m\[m  
+[32m|[m *   [33m7bb0e65[m Merge branch 'main' of https://github.com/galatserega/falcon_prod Merge branch 'main' of https://github.com/galatserega/falcon_prod
+[32m|[m [34m|[m[35m\[m  
+[32m|[m * [35m|[m [33m9054719[m Your commit message
+* [35m|[m [35m|[m [33m3cd65a8[m Added db.sqlite3 to .gitignore
+* [35m|[m [35m|[m [33mb4be5c3[m Added update.sh and webhook.py to .gitignore
+[35m|[m [35m|[m[35m/[m  
+[35m|[m[35m/[m[35m|[m   
+* [35m|[m [33m4b474aa[m Update readme.md
+* [35m|[m [33m2ab2c4b[m Create webhook_test.py
+* [35m|[m [33mba5cec9[m Update local.py
+* [35m|[m [33mc57d755[m Update base.py
+* [35m|[m [33m2409a70[m Update base.py
+[35m|[m[35m/[m  
+* [33m68d2a15[m Update
+* [33mad78625[m Test webhook update
+* [33mf54d1a5[m Оновлення коду без зайвих файлів
+* [33m1d2ce60[m Виключити конфіги сервера з Git
+* [33m7fb2842[m Доповнено авторизацію при замовленні
+* [33m1dfbf2a[m Додано розділ Доставка і оплата
+* [33mb77071b[m Перероблено футер
+* [33m03f655c[m Додано скидання пароля та підтвердження email
+* [33m6e28fb9[m Remove sensitive files and large media from tracking; update .gitignore
+* [33m6355029[m Ignore video files
+* [33mc940303[m Remove large .mp4 file from repository
+* [33m86d110c[m Remove large file and update .gitignore
+* [33m48e37fe[m Initial commit

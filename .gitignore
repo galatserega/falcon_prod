@@ -1,52 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Django database
+*.sqlite3
 db.sqlite3
-# Environment
+
+# Environment variables
 .env
 
-# Python cache and bytecode files
-__pycache__/
-*.pyc
-
-# Database files
-db.sqlite3
-
-# Media and static files
+# Django media and static
 media/
+static/
 staticfiles/
 
-# Log files
+# Virtual environment
+venv/
+env/
+
+# Logs
 *.log
 
-# IDE/editor configs
+# IDEs and editors
 .vscode/
 .idea/
 
-# Large media/video files
-*.mp4
-
-# OS files
+# System files
 .DS_Store
 Thumbs.db
-# Python virtual environment
-# .gitignore
 
+# Custom/local settings
 falcon_clone/settings/local.py
-.env
 update.sh
 webhook.py
-db.sqlite3
-venv/
-media/
-static/
-*.log
-*.sqlite3
+
+# Others
 *.jar
-*.pyo
-*.pyd
-.Python
-venv/
-*.env
-staticfiles/
-media/
-db.sqlite3
-__pycache__/
-*.pyc
+*.mp4
